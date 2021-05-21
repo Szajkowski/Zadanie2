@@ -29,3 +29,4 @@ cd code2-1.0
 ./configure
 make
 sudo make install
+4. program bedzie mozna teraz uruchomic komenda ./code2 bedac w odpowiedniej lokalizacji lub po prostu code2 skadkolwiek
