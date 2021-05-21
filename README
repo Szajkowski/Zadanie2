@@ -1,0 +1,7 @@
+Na tym etapie zadania do uruchomienia go wystarczy:
+1. Pobrać wszystkie pliki i umieścić je w jednym katalogu
+2. Przejść do danego katalogu shellem i wpisać "make"
+3. Po tej komendzie utworzy się plik wykonywalny code2, który można uruchomić poleceniem ./code2
+
+- Aby wyczyścić powstałe po make pliki można użyć komendy "make clean"
+- Aby usunąć wszystkie pobrane pliki można użyć komendy "make delete"

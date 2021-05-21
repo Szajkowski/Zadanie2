@@ -1,10 +1,11 @@
-.PHONY: clean uninstall
+.PHONY: clean delete
 .SUFFIXES: .c .o .a .so
 
 %.o: %.c
 	gcc -c -fPIC $<
 %: $^
 	gcc -o $@ $^ -L./lib -I./ -Wl,-rpath=./
+	rm -f *.o
 
 %.a: $<
 	ar cr $@ $<
@@ -22,7 +23,6 @@ szescian.o: szescian.c szescian.h
 kwadrat.o: kwadrat.c kwadrat.h
 
 clean:
-	rm -f *.o
-
-cleanall:
 	rm -f *.o *.a *.so code2
+delete:
+	rm -f *.c *.h *.o *.a *.so *
