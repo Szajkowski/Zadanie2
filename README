@@ -1,7 +1,31 @@
-Na tym etapie zadania do uruchomienia go wystarczy:
-1. Pobrać wszystkie pliki i umieścić je w jednym katalogu
-2. Przejść do danego katalogu shellem i wpisać "make"
-3. Po tej komendzie utworzy się plik wykonywalny code2, który można uruchomić poleceniem ./code2
+Zadania wykonane w trakcie tworzenia dystrybucji:
+1. utworzenie makefile.am (plik znajduje sie w referenced files do wgladu)
+2. autoscan
+3. na podstawie configure.scan utworzenie configure.ac (takze zawartego w referenced files)
+4. aclocal
+5. touch AUTHORS ChangeLog NEWS README
+6. libtoolize
+7. automake --add-missing
+8. autoconf
+9. automake
+10. ./configure
+11. make
+12. sudo make install
+13. make dist
 
-- Aby wyczyścić powstałe po make pliki można użyć komendy "make clean"
-- Aby usunąć wszystkie pobrane pliki można użyć komendy "make delete"
+I od tego momentu wszystko zaczelo sie chrzanic, poniewaz po wpisaniu komendy make distcheck wyskakiwal blad ze nie istnieje taki plik jak kwadrat.h.
+Plik code2-1.0.tar.gz jednak powstal. Po wypakowaniu zawartosci okazalo sie ze archiwum z jakiegos powodu nie zawiera naglowkow (kwadrat.h i szescian.h). 
+Mimo to po wlozeniu ich recznie do wypakowanego folderu wszystko dziala... 
+Po walce z tym przez caly dzien (z przerwami na jedzenie i inne czynnosci sluzace utrzymaniu sie przy zyciu) skonczylem z niczym.
+
+Dlatego procedura zainstalowania aplikacji wyglada nastepujaco:
+1. nalezy pobrac pliki
+2. nastepnie ustalic w shellu lokalizacje, w ktorej sa pobrane pliki
+3. wpisac nastepujace komendy:
+tar zxvf code2-1.0.tar.gz
+mv kwadrat.h code2-1.0
+mv szescian.h code2-1.0
+cd code2-1.0
+./configure
+make
+sudo make install
